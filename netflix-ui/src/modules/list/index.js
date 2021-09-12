@@ -1,4 +1,3 @@
-import { isEmpty } from "lodash";
 import { useEffect, useState } from "react";
 import { Spinner } from "reactstrap";
 import { getCategories, getMovieListByCategory } from "../../api/categories";
@@ -70,7 +69,7 @@ const List = () => {
   const setMovieListByCategory = (item, result) => {
     const categoryName = textWithoutSpace(item);
     const movieObj = movieList[categoryName];
-    if (!isEmpty(movieObj)) {
+    if (movieObj) {
       movieList[categoryName] = {
         page: result.page,
         list: [...movieObj.list, ...result.data],
